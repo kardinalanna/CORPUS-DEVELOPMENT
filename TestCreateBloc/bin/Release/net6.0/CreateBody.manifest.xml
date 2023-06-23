@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AddIns>
+  <AddIn name="CreateBody"
+		   description="CreateBody Add-in for Disco"
+		   assembly="CreateBody.dll"
+		   typename="CreateBody.CreateBody"
+		   host="SameAppDomain"
+		   allowOnDemandLoad="true" />
+</AddIns>

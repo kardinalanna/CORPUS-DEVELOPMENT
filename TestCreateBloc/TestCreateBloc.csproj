@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CreateBody\CreateBody.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Discovery.Api.V23">
+      <HintPath>C:\Program Files\ANSYS Inc\ANSYS Student\v222\Discovery\Discovery.Api.V23.dll</HintPath>
+    </Reference>
+    <Reference Include="SpaceClaim.Api.V23">
+      <HintPath>C:\Program Files\ANSYS Inc\ANSYS Student\v222\Discovery\SpaceClaim.Api.V23\SpaceClaim.Api.V23.dll</HintPath>
+    </Reference>
+    <Reference Include="SpaceClaim.Api.V23.Internal">
+      <HintPath>C:\Program Files\ANSYS Inc\ANSYS Student\v222\Discovery\SpaceClaim.Api.V23\SpaceClaim.Api.V23.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="SpaceClaim.Foundation">
+      <HintPath>C:\Program Files\ANSYS Inc\ANSYS Student\v222\Discovery\SpaceClaim.Foundation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

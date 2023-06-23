@@ -1,0 +1,17 @@
+C:\ProgramData\Discovery\AddIns\CreateBody\CreateBody.dll
+C:\ProgramData\Discovery\AddIns\CreateBody\CreateBody.pdb
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\CreateBody.csproj.AssemblyReference.cache
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\BasicTemplate.Properties.Resources.resources
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\CreateBody.csproj.GenerateResource.cache
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\CreateBody.csproj.CoreCompileInputs.cache
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\CreateBody.csproj.CopyComplete
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\BasicTemplate.dll
+D:\addin\Sample_Addin_2\BasicTemplate\BasicTemplate\obj\x64\Debug\BasicTemplate.pdb
+C:\ProgramData\Discovery\AddIns\CreateBody\CreateBody.manifest.xml
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.csproj.AssemblyReference.cache
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.Properties.Resources.resources
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.csproj.GenerateResource.cache
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.csproj.CoreCompileInputs.cache
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.csproj.CopyComplete
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.dll
+D:\addin\Sample_Addin_2\CreateBody\CreateBody\obj\x64\Debug\CreateBody.pdb

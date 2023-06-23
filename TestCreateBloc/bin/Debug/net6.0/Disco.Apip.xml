@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Disco.Apip</name>
+    </assembly>
+    <members>
+        <member name="T:Ansys.Disco.Apip.ApipGraphicsUtilities">
+            <summary>
+            Methods for APIP graphics information utilities
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipGraphicsUtilities.GetGraphicsInfo">
+            <summary>
+            Retrieves information about the graphics card the user has
+            </summary>
+            <returns>Information regarding the graphics card vendor, renderer, and OpenGL version</returns>
+        </member>
+        <member name="T:Ansys.Disco.Apip.Events.ApipEvents">
+            <summary>
+            Events dealing with various stages of sending APIP data
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.Apip.Events.ApipEvents.AboutToSendApipData">
+            <summary>
+            Happens right before APIP data is to be sent to the client
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Events.ApipEvents.AboutToSendApipData.#ctor(Ansys.Disco.Apip.IApipPublisher)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.Apip.Events.ApipEvents.AboutToSendApipData"/> class.
+            </summary>
+            <param name="publisher">The publisher to add APIP data to</param>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Events.ApipEvents.AboutToSendApipData.Publisher">
+            <summary>
+            The publisher to add APIP data to
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.Apip.Internal.ApipClient">
+            <summary>
+            The default implementation of <see cref="T:Ansys.Disco.Apip.Internal.IApipClient"/>
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipClient._clientInfo">
+            <summary>
+            The information about the client connection to use
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipClient._data">
+            <summary>
+            The collection of data to send
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipClient._debuggingFile">
+            <summary>
+            If the Debugging mode is enabled, and everything should be written to this file instead of published
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipClient.#ctor(Ansys.Disco.Apip.Internal.ApipClientInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.Apip.Internal.ApipClient"/> class.
+            </summary>
+            <param name="clientInfo">The client information to use to connect</param>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipClient.AddData(System.String,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipClient.PublishData">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipClient.EnableDebuggingMode(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.Apip.Internal.ApipClientInfo">
+            <summary>
+            A container for holding information relating to connecting through <see cref="T:Ansys.Disco.Apip.Internal.ApipClient"/>
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipClientInfo.#ctor(Ansys.Disco.Apip.Internal.ApipConfiguration,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.Apip.Internal.ApipClientInfo"/> class
+            </summary>
+            <param name="configuration">Additional external configuration supplied by clients</param>
+            <param name="internalExternal">The identifier for the category to place data from this session in</param>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipClientInfo.Configuration">
+            <summary>
+            The configuration used in this client setup
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipClientInfo.ApplicationName">
+            <summary>
+            The name for the application
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipClientInfo.ApplicationVersion">
+            <summary>
+            The version of the application
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipClientInfo.ApplicationGuid">
+            <summary>
+            The unique identifier for this application
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipClientInfo.AnalyticsServerUrl">
+            <summary>
+            The server to send the data to
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipClientInfo.ApplicationInternalExternal">
+            <summary>
+            Is the user internal or external
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.Apip.Internal.ApipConfiguration">
+            <summary>
+            Additional configuration for how the APIP service should be managed
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipConfiguration.Server">
+            <summary>
+            The URI of the server to connect to and publish APIP data to
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.Apip.Internal.ApipConfiguration.BlockedLocation">
+            <summary>
+            If the location that this client is in should be blocked
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipConfiguration.ReadXml(System.IO.Stream)">
+            <summary>
+            Reads a set of APIP Configuration from a given XML stream
+            </summary>
+            <param name="xmlStream">The stream to read from</param>
+            <returns>The read configuration</returns>
+        </member>
+        <member name="T:Ansys.Disco.Apip.Internal.ApipLifetimeManager">
+            <summary>
+            A manager object responsible for observing events and sending APIP data
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipLifetimeManager._apipClient">
+            <summary>
+            The client this communicates through
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipLifetimeManager._eventAggregator">
+            <summary>
+            The aggregator that messages are published through
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipLifetimeManager._environmentContext">
+            <summary>
+            Contains contextual information about the configuration environment we are in
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipLifetimeManager._appUserSettings">
+            <summary>
+            The application user settings
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipLifetimeManager.#ctor(Ansys.Disco.Apip.Internal.IApipClient,Prism.Events.IEventAggregator,Ansys.Disco.Core.Environment.IEnvironmentContext,Ansys.Disco.Core.Environment.IAppUserSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.Apip.Internal.ApipLifetimeManager"/> class.
+            </summary>
+            <param name="apipClient">The client to communicate through</param>
+            <param name="eventAggregator">The aggregator that messages are published through</param>
+            <param name="envContext">The environment context</param>
+            <param name="appUserSettings">The application user settings</param>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipLifetimeManager.ListenForShutdown">
+            <summary>
+            Begins listening for the Disco shutdown event
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipLifetimeManager.DiscoShutdownReceived(Ansys.Disco.Core.Events.EventMessage)">
+            <summary>
+            Event triggered when a request to shutdown has been received
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.Apip.Internal.ApipPublisher">
+            <summary>
+            Default implementation of <see cref="T:Ansys.Disco.Apip.IApipPublisher"/>
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.Internal.ApipPublisher._client">
+            <summary>
+            The client that this publishes through
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.ApipPublisher.AddData(System.String,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.Apip.Internal.IApipClient">
+            <summary>
+            A client that may connect to an APIP Server and provide usage information
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.IApipClient.AddData(System.String,System.Object)">
+            <summary>
+            Adds data to be provided to the server
+            </summary>
+            <param name="key">The key for the data entry</param>
+            <param name="value">The value for the data entry</param>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.IApipClient.PublishData">
+            <summary>
+            Connects to, and publishes all data to the server
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.Internal.IApipClient.EnableDebuggingMode(System.String)">
+            <summary>
+            Switches to debugging mode, and write data to file instead of the server
+            </summary>
+            <param name="fileLocation">The full file name to write to</param>
+        </member>
+        <member name="T:Ansys.Disco.Apip.ApipInitializer">
+            <summary>
+            The initializer used to register Disco APIP
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipInitializer.Initialize(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Performs initialization for the APIP objects and event listeners
+            </summary>
+            <param name="container">The container to resolve dependencies from</param>
+        </member>
+        <member name="T:Ansys.Disco.Apip.IApipPublisher">
+            <summary>
+            The publisher that is capable of forwarding data to APIP
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.IApipPublisher.AddData(System.String,System.Object)">
+            <summary>
+            Adds data to be provided to the server
+            </summary>
+            <param name="key">The key for the data entry</param>
+            <param name="value">The value for the data entry</param>
+        </member>
+        <member name="T:Ansys.Disco.Apip.ApipUtilities">
+            <summary>
+            Forwards for various APIP utilities
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.ApipUtilities.DomainRegex">
+            <summary>
+            The regex used to detect when machines are on the Ansys network
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.IsUserOnAnsysNetwork">
+            <summary>
+            Determines if user DNS domain contains ansys.com, fluent.com, even-ag.ch. 
+            </summary>
+            <returns>true if user DNS domain contains ansys.com, fluent.com, even-ag.ch, false otherwise. Defaults to false</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetGeoID">
+            <summary>
+            Query to retrieve an unique identification number for the users geographical region
+            Table of geographical locations: https://msdn.microsoft.com/en-us/library/dd374073.aspx
+            </summary>
+            <returns>An unique identification number for the geographical location of the user </returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetTimezone">
+            <summary>
+            Gets the current time zone key name on Windows and time zone indicator on Linux
+            </summary>
+            <returns>A string representing current time zone</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetGraphicsCardName">
+            <summary>
+            Gets the name and model of a machine's graphics card.
+            </summary>
+            <returns>the name and model of system's graphics card</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetTotalPhysicalMemoryInGB">
+            <summary>
+            Gets the amount of physical memory(RAM) on a machine in gigabytes
+            </summary>
+            <returns>the amount of physical memory(RAM) on a machine in gigabytes</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetProcessorName">
+            <summary>
+            Gets the model name of the machine's central processor along with its number of physical cores
+            E.g: Intel(R) Xeon(R) CPU X5570 @ 2.93GHz (8 Cores)
+            </summary>
+            <returns>the model name of the machine's central processor along with its number of physical cores</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetOperatingSystemName">
+            <summary>
+            Gets the name of the machine's operating system.
+            </summary>
+            <returns>the name of the machine's operating system.</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetIso3CountryCode">
+            <summary>
+            Gets the ISO 3-letter country/region code of the machine.
+            </summary>
+            <returns>the ISO 3-letter country/region code</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetUserId">
+            <summary>
+            Gets the unique ID of this client (without any personal information)
+            </summary>
+            <returns>The ID of the client</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetHardDriveSerialNumbers">
+            <summary>
+            Retrieves all of the serial numbers for all hard drives on this computer
+            </summary>
+            <returns>The IDs of the hard drives</returns>
+        </member>
+        <member name="F:Ansys.Disco.Apip.ApipUtilities.EDD_GET_DEVICE_INTERFACE_NAME">
+            <summary>
+            Used by <see cref="M:Ansys.Disco.Apip.ApipUtilities.EnumDisplayDevices(System.IntPtr,System.UInt32,Ansys.Disco.Apip.ApipUtilities.DisplayDevice,System.UInt32)"/> to get the DeviceID parameter
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.ApipUtilities.DISPLAY_DEVICE_PRIMARY_DEVICE">
+            <summary>
+            Flag set in the <see cref="M:Ansys.Disco.Apip.ApipUtilities.EnumDisplayDevices(System.IntPtr,System.UInt32,Ansys.Disco.Apip.ApipUtilities.DisplayDevice,System.UInt32)"/> to indicate the primary device
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.Apip.ApipUtilities.ComputerNameDnsDomain">
+            <summary>
+            Flag used in <see cref="M:Ansys.Disco.Apip.ApipUtilities.GetComputerNameEx(System.UInt32,System.Text.StringBuilder,System.UInt32@)"/> to retrieve the DNS Domain Name
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GlobalMemoryStatusEx(Ansys.Disco.Apip.ApipUtilities.MemoryStatusEx)">
+            <summary>
+            Retrieves the status of the operating system's memory layout
+            </summary>
+            <param name="lpBuffer">The buffer to write the data to</param>
+            <returns>True if the status could be retrieved</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.EnumDisplayDevices(System.IntPtr,System.UInt32,Ansys.Disco.Apip.ApipUtilities.DisplayDevice,System.UInt32)">
+            <summary>
+            Retrieves an enumeration of the available display devices
+            </summary>
+            <param name="lpDevice">Pointer to the device name. If null, function returns information based on the index of iDevNum</param>
+            <param name="iDevNum">The index for the device of interest</param>
+            <param name="lpDisplayDevice">The DisplayDevice struct that will receive the info</param>
+            <param name="dwFlags">Additional flags for the retrieval</param>
+            <returns>True if the device exists</returns>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.GetComputerNameEx(System.UInt32,System.Text.StringBuilder,System.UInt32@)">
+            <summary>
+            Retrieves the full NetBIOS or DNS name associated with this machine
+            </summary>
+            <param name="nameType">The variation to retrieve</param>
+            <param name="lpBuffer">The buffer to write the output</param>
+            <param name="nSize">The size of the buffer</param>
+            <returns>True if the data could be retrieved</returns>
+        </member>
+        <member name="T:Ansys.Disco.Apip.ApipUtilities.MemoryStatusEx">
+            <summary>
+            Struct used for the <see cref="M:Ansys.Disco.Apip.ApipUtilities.GlobalMemoryStatusEx(Ansys.Disco.Apip.ApipUtilities.MemoryStatusEx)"/> call
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.MemoryStatusEx.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.Apip.ApipUtilities.MemoryStatusEx"/> class.
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.Apip.ApipUtilities.DisplayDevice">
+            <summary>
+            Struct used for the <see cref="M:Ansys.Disco.Apip.ApipUtilities.GlobalMemoryStatusEx(Ansys.Disco.Apip.ApipUtilities.MemoryStatusEx)"/> call
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.Apip.ApipUtilities.DisplayDevice.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.Apip.ApipUtilities.DisplayDevice"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<customUI
+  xmlns="http://schemas.spaceclaim.com/customui"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://schemas.spaceclaim.com/customui http://schemas.spaceclaim.com/customui/SpaceClaimCustomUI.V20.xsd">
+
+  <ribbon>
+    <tabs>
+      <tab id="Disco CreateBody" command="CreateBody.RibbonTab">
+        <group id ="Geometry" command="CreateBody.Geometry" label="Geometry">
+          <button id="CreateBody.CreateBlock" size="large" command="CreateBody.CreateBlock"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

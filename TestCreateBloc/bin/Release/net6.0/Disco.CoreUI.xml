@@ -1,0 +1,1390 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Disco.CoreUI</name>
+    </assembly>
+    <members>
+        <member name="T:Ansys.Disco.CoreUI.Adapters.InvokeHelperAdapter">
+            <summary>
+            Wraps <see cref="T:SpaceClaim.InvokeHelper"/> from SpaceClaim.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Adapters.InvokeHelperAdapter.InvokeRequired">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Adapters.InvokeHelperAdapter.BeginInvoke(System.Delegate)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Adapters.InvokeHelperAdapter.BeginInvoke(System.Action)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Adapters.InvokeHelperAdapter.ExecuteOnMainThread(SpaceClaim.Task)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter">
+            <summary>
+            Interface for converting images for SpaceClaim
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter.Convert(System.String)">
+            <summary>
+            Returns the image key for a SpaceClaim command name
+            </summary>
+            <param name="commandName">The SpaceClaim command name</param>
+            <returns>The image resource key</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter.Convert(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand)">
+            <summary>
+            Returns the image key for a SpaceClaim command
+            </summary>
+            <param name="command">The SpaceClaim command</param>
+            <returns>The image resource key</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter.Convert(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimLayoutOption)">
+            <summary>
+            Returns the image key for a SpaceClaim layout option
+            </summary>
+            <param name="layoutOption">The SpaceClaim layout option</param>
+            <returns>The image resource key</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Converters.UnitsValueConverter">
+            <summary>
+            Utility to build ValueConverter instances to handle UnitsNet quantity conversion
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.UnitsValueConverter.GetUnitConverter(UnitsNet.QuantityInfo,System.Enum,System.Enum)">
+            <summary>
+            Builds a unit converter for the given quantity type and conversion unit enums.
+            </summary>
+            <param name="quantityInfo">The <see cref="T:UnitsNet.QuantityInfo"/> for the quantity to be converted. This is necessary to avoid ambiguity.</param>
+            <param name="fromUnit">The unit the value is being converted from.</param>
+            <param name="toUnit">The unit the value is being converted to.</param>
+            <returns>A value converter to convert back and fourth between given units.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.UnitsValueConverter.GetUnitConverter(UnitsNet.QuantityInfo,System.Enum)">
+            <summary>
+            Builds a unit converter for the given quantity type and conversion unit enum.
+            </summary>
+            <param name="quantityInfo">The <see cref="T:UnitsNet.QuantityInfo"/> for the quantity to be converted. This is necessary to avoid ambiguity.</param>
+            <param name="toUnit">The unit the value is being converted to.</param>
+            <remarks>Note that this method overload makes assumptions about the unit you are converting from, e.g. DegreesCelsius for Temperature.</remarks>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.UnitsValueConverter.UnitsNetValueConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Converters.UnitsValueConverter.UnitsNetValueConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.CoreUiInitializer">
+            <summary>
+            Initializes and sets up the Core UI dependencies with the <see cref="T:Microsoft.Practices.Unity.IUnityContainer"/>
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.CoreUiInitializer.Initialize(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Register all types for this project.
+            </summary>
+            <param name="container">Unity container</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.CursorImageData.CursorSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.CursorImageData.CursorHotspot">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.CursorImageData.CursorImageKeys">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.ICursorImageData.CursorSize">
+            <summary>
+            Size of the cursor
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.ICursorImageData.CursorHotspot">
+            <summary>
+            Cursor hotspot
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.ICursorImageData.CursorImageKeys">
+            <summary>
+            Single image key (string), or List of layered keys
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.IToolkitCursorViewModel.CursorImageData">
+            <summary>
+            Contains all data about the cursor's appearance
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.IToolkitCursorViewModel.IsUpdated">
+            <summary>
+            If the cursor image is actually changed.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Cursors.IToolkitCursorViewModel.IsActiveForTool(Ansys.Disco.Core.Tools.IOperation)">
+            <summary>
+            Given the active tool, is this cursor active?
+            </summary>
+            <param name="activeTool">Currently active tool</param>
+            <returns>If this cursor is active</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Cursors.IToolkitCursorViewModel.UpdateIcon">
+            <summary>
+            Updates the cursor's icon properties
+            </summary>
+            <returns>If the cursor should be displayed</returns>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Cursors.ToolkitCursorBaseViewModel.CursorImageData">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Cursors.ToolkitCursorBaseViewModel.IsActiveForTool(Ansys.Disco.Core.Tools.IOperation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Cursors.ToolkitCursorBaseViewModel.UpdateIcon">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenuItem">
+            <summary>
+            An extended file menu item
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenuItem.AfterSection">
+            <summary>
+            Placement for the menu item, where the item can appear after the provided section.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenuItem.Item">
+            <summary>
+            The item viewmodel to be added to the file menu.
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenu">
+            <summary>
+            A class used to extend the file menu of the application
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenu.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenu"/> class.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.FileMenu.ExtensibleFileMenu.MenuItems">
+            <summary>
+            The menu items to be added to the file menu.
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.FileMenu.FileMenuSection">
+            <summary>
+            Default sections of the file menu.
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.FileMenu.FileMenuSection.File">
+            <summary>
+            The file section, including New, Open, Save, Save As
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.FileMenu.FileMenuSection.Export">
+            <summary>
+            The export section, including Create Report
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.FileMenu.FileMenuSection.Import">
+            <summary>
+            The import section, including Insert
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.FileMenu.FileMenuSection.Settings">
+            <summary>
+            The settings section
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.FileMenu.FileMenuSection.About">
+            <summary>
+            The about section
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.FileMenu.FileMenuSection.Exit">
+            <summary>
+            The exit section
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Halo.HaloRegistry">
+            <summary>
+            Registry for the halo menus
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Halo.HaloRegistry.Register(System.String,Ansys.Disco.Core.ViewModels.IHaloMenuViewModel)">
+            <summary>
+            Registers a halo menu with the given name.
+            </summary>
+            <param name="name">The name of the halo menu.</param>
+            <param name="halo">The menu viewmodel instance.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Halo.HaloRegistry.TryResolve(System.String,Ansys.Disco.Core.ViewModels.IHaloMenuViewModel@)">
+            <summary>
+            Attempts to resolve the halo menu given a name.
+            </summary>
+            <param name="name">The name of the halo menu,</param>
+            <param name="halo">A returned instances of the halo viewmodel.</param>
+            <returns>True if the menu was successfully resolved.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Halo.HaloRegistry.ResolveAll">
+            <summary>
+            Retrieves all registered halo menu instances.
+            </summary>
+            <returns>A dictionary of halo menu names and viewmodel instances.</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel">
+            <summary>
+            Interface for the simulation information display viewmodel.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel.IsVisible">
+            <summary>
+            True if the simulation information should be visible.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel.Tooltip">
+            <summary>
+            The tooltip for the main hexagon in the simulation information display.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel.Icons">
+            <summary>
+            The physics icons to be should in the simulation information display.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel.HexMenu">
+            <summary>
+            The hex menu for the simulation information display.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel.Update">
+            <summary>
+            Updates and refreshes the viewmodel content for the simulation information display.
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Sid.ISimulationInfoRegistry">
+            <summary>
+            A registry for simulation information
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.ISimulationInfoRegistry.Register(Ansys.Disco.Core.Stages.Stage,System.Func{System.Guid,Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel})">
+            <summary>
+            Registers simulation information for the given <see cref="T:Ansys.Disco.Core.Stages.Stage"/>.
+            </summary>
+            <param name="stage">The stage the simulation information will be registered against.</param>
+            <param name="simulationInfo">The <see cref="T:System.Func`2"/> used to display in the UI based on the current simulation.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.ISimulationInfoRegistry.TryGet(Ansys.Disco.Core.Stages.Stage,System.Func{System.Guid,Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel}@)">
+            <summary>
+            Attempts to retrieve <see cref="T:System.Func`2"/> registered with the given stage.
+            </summary>
+            <param name="stage">The stage the simulation information will be retrieved for.</param>
+            <param name="simulationInfo">The <see cref="T:System.Func`2"/> used to display in the UI based on the current simulation.</param>
+            <returns>True if the simulation info was successfully retrieved.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.ISimulationInfoRegistry.TryGet(Ansys.Disco.Core.Stages.Stage,System.Guid,Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel@)">
+            <summary>
+            Attempts to retrieve <see cref="T:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel"/> registered with the given stage and simulation.
+            </summary>
+            <param name="stage">The stage the simulation information will be retrieved for.</param>
+            <param name="simulationId">The <see cref="T:System.Guid"/> of the simulation that the simulation information will be retrieved for.</param>
+            <param name="simulationInfo">The <see cref="T:Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel"/> used to display in the UI based on the current simulation.</param>
+            <returns>True if the simulation info was successfully retrieved.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.SimulationInfoRegistry.Register(Ansys.Disco.Core.Stages.Stage,System.Func{System.Guid,Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel})">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.SimulationInfoRegistry.TryGet(Ansys.Disco.Core.Stages.Stage,System.Func{System.Guid,Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel}@)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Sid.SimulationInfoRegistry.TryGet(Ansys.Disco.Core.Stages.Stage,System.Guid,Ansys.Disco.CoreUI.Sid.ISimulationInfoHexViewModel@)">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideDropdownButtonViewModel.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideRadialButtonViewModel.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideRadialFlyoutButtonViewModel.Id">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideResourceConverter.GetLabel(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideResourceConverter.GetText(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideResourceConverter.GetHint(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideResourceConverter.GetImage(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideResourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideResourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideSplitButtonViewModel.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolGuides.ToolGuideToggleButtonViewModel.Id">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolOptions.OptionsBaseViewModel.PrimaryOptions">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolOptions.OptionsBaseViewModel.Options">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tools.Presentation.ToolOptions.OptionsBaseViewModel.ToolSubOption">
+            <inheritdoc />
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tools.Presentation.PresenterToolResources.FlowTemperature">
+            <summary>
+            Id for Flow Temperature of FlowEntity.
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tools.Presentation.PresenterToolResources.ExternalTemperature">
+            <summary>
+            Id for Convection External Temperature of ConvectionEntity.
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tools.Presentation.PresenterToolResources.DisplacementRotation">
+            <summary>
+            Id for Displacement Rotation of DisplacementEntity.
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tools.Presentation.PresenterToolResources.SupportRotation">
+            <summary>
+            Id for rotational magnitude of SupportEntity
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tools.Presentation.PresenterToolResources.ExtendedSelectionTool">
+            <summary>
+            Id for ExtendedSelectionTool in SC Facade
+            </summary>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tools.Presentation.PresenterToolResources.ExtendedComponentSelectionTool">
+            <summary>
+            Id for ExtendedComponentSelectionTool in SC Facade
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Tree.ITreeNodeExtension">
+            <summary>
+            Interface for implementing tree node extensions and behaviour.
+            </summary>
+        </member>
+        <member name="E:Ansys.Disco.CoreUI.Tree.ITreeNodeExtension.RefreshRequired">
+            <summary>
+            Event used to signal back to the tree node that a refresh is required.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeNodeExtension.GetContextMenuItems(Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode,Ansys.Toolkit.Wpf.ViewModels.Contracts.Options.IOptionTreeNodeViewModel,Ansys.Disco.CoreUI.Tree.ITreeItemSelection)">
+            <summary>
+            Retrieves context menu items from the extensions.
+            </summary>
+            <param name="treeNode">The applicable tree node data.</param>
+            <param name="treeNodeViewModel">The applicable tree node viewmodel.</param>
+            <param name="treeItemSelection">The tree selection and helper to modify it.</param>
+            <returns>A collection of context menu items.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeNodeExtension.VisitTreeNode(Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode,Ansys.Toolkit.Wpf.ViewModels.Contracts.Options.IOptionTreeNodeViewModel)">
+            <summary>
+            Used to visit the extensions with the applicable tree node during updates.
+            </summary>
+            <param name="treeNode">The tree node to visit and update.</param>
+            <param name="treeNodeViewModel">The tree node viewmodel to visit and update.</param>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Tree.ITreeSelection">
+            <summary>
+            Selection interface for different trees in the application.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeSelection.GetGeometryTreeSelection">
+            <summary>
+            Selection for geometry tree.
+            </summary>
+            <returns>An enumerable of selected objects.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeSelection.GetPhysicsTreeSelection">
+            <summary>
+            Selection for physics tree.
+            </summary>
+            <returns>An enumerable of selected objects.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeSelection.GetMonitorTreeSelection">
+            <summary>
+            Selection for monitor tree.
+            </summary>
+            <returns>An enumerable of selected objects.</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeSelection.GetChartTreeSelection">
+            <summary>
+            Selection for chart tree.
+            </summary>
+            <returns>An enumerable of selected objects.</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Tree.NodeList`1">
+            <summary>
+            An ordered list of <see cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/> (or derived
+            type) that maintains a mapping between <see
+            cref="P:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode.Evaluation"/> and <see
+            cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/> to provide O(1) lookup from an <see
+            cref="T:SpaceClaim.IEvaluation"/> to the associated <see
+            cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/> in the list.
+            </summary>
+            <typeparam name="T">
+            <see cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/> or a derived class.
+            </typeparam>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tree.NodeList`1._evaluations">
+            <summary>
+            Maps <see cref="P:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode.Evaluation"/> to the
+            <see cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/>.
+            </summary>
+            <remarks>
+            Warnings:
+            <list type="bullet">
+            <item>
+            If two or more nodes share the same evaluation, the first node
+            added will win and the other nodes will be ignored. This is to
+            match the original behavior when child lists were implemented
+            directly using <see cref="T:System.Collections.Generic.List`1"/> and matches were sought in
+            ascending list order (i.e. order of having been added).
+            </item>
+            <item>
+            Nodes with a null evaluation cannot be stored here. Consequently,
+            this dictionary may have fewer entries than <see cref="F:Ansys.Disco.CoreUI.Tree.NodeList`1._items"/>.
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:Ansys.Disco.CoreUI.Tree.NodeList`1._items">
+            <summary>
+            The list of nodes, in the order they were originally added.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.Add(`0)">
+            <summary>
+            Adds a node to the list.
+            </summary>
+            <param name="item">
+            The node to add.
+            </param>
+            <remarks>
+            It is possible to add the same node more than once. This is a
+            deliberate emulation of the previous List{T}-based behavior used in
+            the tree.
+            </remarks>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.AddAtHead(`0)">
+            <summary>
+            Inserts a node at the start of the list.
+            </summary>
+            <param name="item">
+            The node to insert.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Appends the supplied nodes at the end of the list.
+            </summary>
+            <param name="items">
+            The nodes to add.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.AddRangeAtHead(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Inserts the supplied nodes at the start of the list.
+            </summary>
+            <param name="items">
+            The nodes to add.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.AddUnique(`0)">
+            <summary>
+            Adds the specified node to the list, but only if it is not already
+            present in the list.
+            </summary>
+            <param name="item">
+            The node to add.
+            </param>
+            <remarks>
+            This time complexity of this method is O(N) based on the number of
+            items in the list, so do not use this method repeatedly with very
+            large lists.
+            </remarks>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.AddUniqueRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds the specified nodes to the list, but only add a node if it is
+            not already present in the list.
+            </summary>
+            <param name="items">
+            The nodes to add.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.AddUniqueRange(Ansys.Disco.CoreUI.Tree.NodeList{`0})">
+            <summary>
+            Adds the nodes from the specified <see cref="T:Ansys.Disco.CoreUI.Tree.NodeList`1"/> to the
+            list, but only add a node if it is not already present in the list.
+            </summary>
+            <param name="items">
+            The nodes to add.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.Any">
+            <summary>
+            Returns <see langword="true"/> if there are any nodes in the list.
+            </summary>
+            <returns>
+            <see langword="true"/> if there is at least one node in the list,
+            <see langword="false"/> otherwise.
+            </returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.Clear">
+            <summary>
+            Removes all of the nodes from the list.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.Find(System.Predicate{`0})">
+            <summary>
+            Returns the first node for which the supplied <paramref
+            name="predicate"/> matches.
+            </summary>
+            <param name="predicate">
+            The test.
+            </param>
+            <returns>
+            The first node that matched the predicate, or <see
+            langword="null"/> if the list was empty, the predicate was <see
+            langword="null"/>, or did not match any node.
+            </returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.ForEach(System.Action{`0})">
+            <summary>
+            Executes the supplied <paramref name="action"/> for each of the
+            nodes in the list.
+            </summary>
+            <param name="action">
+            The action to execute.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.IndexOf(`0)">
+            <summary>
+            Returns the list index of the first occurrence of the specified
+            node.
+            </summary>
+            <param name="item">
+            The node to search for.
+            </param>
+            <returns>
+            The index of the node, of <c>-1</c> if the node is not found.
+            </returns>
+            <remarks>
+            The time complexity of this method is O(N). Don't use this method
+            repeatedly with very large lists.
+            </remarks>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.Remove(`0)">
+            <summary>
+            Removes all occurrences of the specified node from the list.
+            </summary>
+            <param name="item">
+            The node to remove.
+            </param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.ToList">
+            <summary>
+            Returns a copy of the node list.
+            </summary>
+            <returns>
+            A copy of the node list.
+            </returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.TryFindUnique(System.Predicate{`0},System.Int32@)">
+            <summary>
+            Returns the single node that matches the supplied <paramref
+            name="predicate"/>, or <see langword="null"/> if more than one node
+            matches the <paramref name="predicate"/> or if zero nodes match.
+            </summary>
+            <param name="predicate">
+            The condition to test each node against.
+            </param>
+            <param name="matches">
+            Returns the number of nodes that matched the <paramref
+            name="predicate"/>.
+            </param>
+            <returns>
+            The single node matching the <paramref name="predicate"/> or <see
+            langword="null"/> if zero or multiple nodes matched.
+            </returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.NodeList`1.TryGetNode(SpaceClaim.IEvaluation,`0@)">
+            <summary>
+            Gets the <see cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/> associated with
+            the specified <see cref="T:SpaceClaim.IEvaluation"/>.
+            </summary>
+            <param name="evaluation">
+            The <see cref="T:SpaceClaim.IEvaluation"/> of the <see
+            cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/> to be returned.
+            </param>
+            <param name="node">
+            The matching <see cref="T:Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode"/>, or <see
+            langword="null"/> if no corresponding node could be found.
+            </param>
+            <returns>
+            <see langword="true"/> if the node was found, <see
+            langword="false"/> otherwise.
+            </returns>
+            <remarks>
+            In general, the time complexity of this method is O(1). However, if
+            the supplied evaluation is not found and the list contains nodes,
+            the evaluation cache will be rebuilt. This behavior is necessary to
+            handle the situation where a node's <see cref="T:SpaceClaim.IEvaluation"/> has
+            been changed since the node was added to the list.
+            <para>
+            WARNING: If the list has nodes, repeatedly calling this method with
+            <see cref="T:SpaceClaim.IEvaluation"/> instances that are not associated with
+            the nodes in the list will cause unnecessary rebuilding of the
+            cache.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.StructureTreeItemBase.CheckUpdate">
+            <summary>
+            This CheckUpdate will ensure that the child nodes of this node are updated
+            removing any deleted or modified nodes. This will also ensure that visibility
+            is calculated correctly
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.StructureTreeItemBase.StartRename">
+            <summary>
+            Alerts the view model that the node is being renamed
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.StructureTreeItemBase.StopRename">
+            <summary>
+            Used by the view model to tell the node the rename is complete
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.StructureTreeItemBase.SearchCriteria(System.String)">
+            <summary>
+            Basic Search function that checks the search filter with the Name property.
+            This function can be overridden to get more granular filter
+            </summary>
+            <param name="searchFilter">String search for</param>
+            <returns>true if match found</returns>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.StructureTreeItemBase.InvokeUpdateNode">
+            <summary>
+            Will let the Node's view model know that a change was
+            made and the node items should be refreshed
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.StructureTreeItemBase.GetVisibleState(System.Boolean)">
+            <summary>
+            calculates the visibility of the node
+            </summary>
+            <param name="checkThisEval">whether to check this node's eval for a visibility value or go straight to the children</param>
+            <returns>the visibility state of the node</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Tree.ITreeItemSelection">
+            <summary>
+            Selection helpers for tree items.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeItemSelection.SetSelectionBeforeCommand">
+            <summary>
+            Applies the correct selection before executing a command.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.ITreeItemSelection.GetSelection">
+            <summary>
+            Retrieves the selection
+            </summary>
+            <returns>The selected items from the tree.</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions">
+            <summary>
+            Manager for registering and calling <see cref="T:Ansys.Disco.CoreUI.Tree.ITreeNodeExtension" /> implementations.
+            </summary>
+        </member>
+        <member name="E:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions.RefreshRequired">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions.Instance">
+            <summary>
+            Static instance for the tree extensions manager.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions.GetContextMenuItems(Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode,Ansys.Toolkit.Wpf.ViewModels.Contracts.Options.IOptionTreeNodeViewModel,Ansys.Disco.CoreUI.Tree.ITreeItemSelection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions.VisitTreeNode(Ansys.Disco.CoreUI.Tree.Contracts.IStructureTreeBaseItemNode,Ansys.Toolkit.Wpf.ViewModels.Contracts.Options.IOptionTreeNodeViewModel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions.Register(Ansys.Disco.CoreUI.Tree.ITreeNodeExtension)">
+            <summary>
+            Registers an extension for the tree.
+            </summary>
+            <param name="extension">The extension to be registered.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.Tree.TreeNodeExtensions.Unregister(Ansys.Disco.CoreUI.Tree.ITreeNodeExtension)">
+            <summary>
+            Unregisters and extension for the tree.
+            </summary>
+            <param name="extension">The extension to be unregistered.</param>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.Tree.TreeNodeRefreshArgs">
+            <summary>
+            Arguments for the <see cref="E:Ansys.Disco.CoreUI.Tree.ITreeNodeExtension.RefreshRequired" /> event.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.Tree.TreeNodeRefreshArgs.NodeId">
+            <summary>
+            The node id to be refreshed. (not yet used...)
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewArc.ICustomSceneOptionsProvider">
+            <summary>
+            Provider interface for custom scene options
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewArc.ICustomSceneOptionsProvider.GetOptions(Ansys.Disco.Core.Stages.Stage,System.Guid)">
+            <summary>
+            Retrieve the custom scene options for the given stage and simulation.
+            </summary>
+            <param name="stage">The stage to request custom scene options for.</param>
+            <param name="simulationId">The id of the simulation we are requesting scene options for.</param>
+            <returns>An instance of <see cref="T:Ansys.Disco.CoreUI.ViewArc.CustomSceneOptions"/> that contains all of the command names to be exposed in the view menu.</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewArc.CustomSceneOptions">
+            <summary>
+            Definition of custom scene options exposed within the View ARC
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewArc.CustomSceneOptions.Header">
+            <summary>
+            Label used for the header of the view menu.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewArc.CustomSceneOptions.Image">
+            <summary>
+            Image used for the radial button in the view menu.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewArc.CustomSceneOptions.CommandNames">
+            <summary>
+            A list of command names for the options within the view menu.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.ColorPaletteSwitchButton">
+            <summary>
+            Color palettet swich toggle button (Vived/Soft Colors)
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.OpacitySlider">
+            <summary>
+            Opacity slider control to change the alpha channel of the color selected
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.ColorDropdown">
+            <summary>
+            Color dropdown button
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.ColorBoxViewModel">
+            <summary>
+            Color box (wide) dropdown
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.ColorOptionsTransparencyToggleButton">
+            <summary>
+            Transparency toggle button
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.BasicColorsPalette">
+            <summary>
+            Basic colors palette
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.DiscoColorPaletteViewModel.MoreColorsPickerButton">
+            <summary>
+            More colors picker button
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel">
+            <summary>
+            Interface for DiscoColorPaletteViewModel
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.ColorDropdown">
+            <summary>
+            Color dropdown option
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.ColorOptionsTransparencyToggleButton">
+            <summary>
+            Transparency toggle button
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.BasicColorsPalette">
+            <summary>
+            Basic colors palette
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.MoreColorsPickerButton">
+            <summary>
+            More colors picker button
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.ColorBoxViewModel">
+            <summary>
+            Color box (wide) dropdown color picker
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.ShowStandardColors">
+            <summary>
+            Show the vivid Disco colors (Standard/Default)
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.ShowMutedColors">
+            <summary>
+            Show muted colors that are similar to SpaceClaim colors
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.UpdateSelection(System.Collections.Generic.ICollection{SpaceClaim.IEvaluation},SpaceClaim.IHasVisualOverride)">
+            <summary>
+            Selected changed this will update the targets and selected colors
+            </summary>
+            <param name="selection"></param>
+            <param name="overrides"></param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.SetPickedColor(System.Drawing.Color)">
+            <summary>
+            Set Color value for all the controls within the view model
+            </summary>
+            <param name="color">new color</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.ColorPicker.IDiscoColorPaletteViewModel.GetPickedColor">
+            <summary>
+            Gets the color selected from the color palette taking account target
+            </summary>
+            <returns>selected color from palette</returns>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel">
+            <summary>
+            Toolkit compatible button view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">Is OptionCommand flag</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">Is OptionCommand flag</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.ImagePosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.HorizontalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.VerticalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.TextWrapping">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.TextAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.TextTrimming">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.ImageSizeConstraint">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.ButtonTreatment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandButtonViewModel.Animation">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandCheckBoxViewModel">
+            <summary>
+            View Model for check box commands.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandCheckBoxViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandCheckBoxViewModel"/> class.
+            </summary>
+            <param name="option">SpaceClaim command option.</param>
+            <param name="imageConverter">Converter that converts SpceClaim images to Discovery images.</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">The is option command.</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandCheckViewModel.Checked">
+            <summary>
+            Checked state of the command
+            </summary>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel">
+            <summary>
+            Toolkit compatible context menu item view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">Tooltip text converter</param>
+            <param name="isOptionCommand">Option Command flag</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">Tooltip text converter</param>
+            <param name="isOptionCommand">Option Command flag</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel.Id">
+            <summary>
+            Unique id for the command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandContextMenuItemViewModel.OnPropertyChanged(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel">
+            <summary>
+            Toolkit compatible split button view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.ImageSizeConstraint">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.ImagePosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.HorizontalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.VerticalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.Options">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.Orientation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.CaratPosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.TextWrapping">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.TextAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.TextTrimming">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.DropdownPlacement">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.ShowCarat">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.StaysOpen">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.Expanded">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.UpdateParentImage">
+            <summary>
+            Enabling this option will update the parent image with the selected
+            item in the dropdown list.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.Animation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandDropdownViewModel.ButtonTextType">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel">
+            <summary>
+            Toolkit compatible button view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">The is option command.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">The is option command.</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel.ImageSizeConstraint">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel.Angle">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel.Animation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandRadialButtonViewModel.ButtonTextType">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel">
+            <summary>
+            Toolkit compatible split button view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.ImageSizeConstraint">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.ImagePosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.HorizontalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.VerticalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.Options">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.Orientation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.CaratPosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.Expanded">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.TextWrapping">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.TextAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.TextTrimming">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.ButtonTreatment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.Animation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.ButtonTextType">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.DropdownPlacement">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.StaysOpen">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandSplitButtonViewModel.ReadOnly">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.ImageSizeConstraint">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.ImagePosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.HorizontalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.VerticalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.IndicatorPosition">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.TextWrapping">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.TextAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.Group">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.TextTrimming">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.ButtonTreatment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.Animation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandToggleButtonViewModel.ButtonTextType">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandTooltipViewModel">
+            <summary>
+            Tooltip view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandTooltipViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandTooltipViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandTooltipViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandTooltipViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">Is OptionCommand flag</param>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel">
+            <summary>
+            Base view-model for a SpaceClaim command
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.#ctor(SpaceClaim.Facade.Tools.Contracts.ISpaceClaimCommand,SpaceClaim.Facade.Tools.Contracts.EnumSpaceClaimCommandOptionType,Ansys.Disco.CoreUI.Converters.ISpaceClaimImageConverter,Ansys.Disco.CoreUI.Converters.IToolTipConverter,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel"/> class.
+            </summary>
+            <param name="option">Command</param>
+            <param name="type">Command type</param>
+            <param name="imageConverter">Image converter</param>
+            <param name="toolTipConverter">The tooltip converter.</param>
+            <param name="isOptionCommand">Is OptionCommand flag</param>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.Id">
+            <summary>
+            Unique id for the command
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.Text">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.ImageSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.ImageKey">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.Toggle">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.Command">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.CommandParameter">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Command.CommandViewModel.OnPropertyChanged(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.SimpleCommandContextMenuItemViewModel.Toggle">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Command.SimpleCommandContextMenuItemViewModel.Checked">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Controls.TypedOptionComboBoxViewModel`1">
+            <summary>
+            Extends <see cref="T:Ansys.Toolkit.Wpf.ViewModels.Options.OptionComboBoxViewModel"/> to provide support for displaying lists of
+            types other than strings.
+            </summary>
+            <typeparam name="T">The type being displayed.</typeparam>
+            <remarks>
+            This class should only be extended to allow type aliasing.
+            </remarks>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Controls.TypedOptionComboBoxViewModel`1.TypedValues">
+            <summary>
+            Gets or sets the set of typed values displayed by this control.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Controls.TypedOptionComboBoxViewModel`1.SelectedItem">
+            <summary>
+            Gets or sets the item currently selected by the control.
+            </summary>
+            <remarks>
+            <see langword="null"/> indicates no selection.
+            </remarks>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Controls.TypedOptionComboBoxViewModel`1.DisplayNameConverter">
+            <summary>
+            Gets or sets the conversion between an item and its string representation in the combobox.
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Controls.TypedOptionComboBoxViewModel`1.SelectedItemChangedCommand">
+            <summary>
+            Gets or sets the command to execute when the item that has been selected changes.
+            </summary>
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Controls.TypedOptionComboBoxViewModel`1.OnPropertyChanged(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel">
+            <summary>
+            Disco implementation of <see cref="T:Ansys.Toolkit.Wpf.ViewModels.Contracts.Options.IOptionListBoxViewModel"/> for the Legend
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.Orientation">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.ImageSelector">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.ToolTipSelector">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.CanDeselect">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.IdSelector">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.UseUniformHorizontalItems">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.ItemTextHorizontalAlignment">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.IndicatorTreatment">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionListBoxViewModel.TrackTreatment">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel">
+            <summary>
+            Disco implementation of <see cref="T:Ansys.Toolkit.Wpf.ViewModels.Contracts.Options.IOptionScrollBoxViewModel"/> for the Legend
+            </summary>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.ReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.Expanded">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.TextBoxTreatment">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.Delay">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.IsSynchronizedWithCurrentItem">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.VerticalAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.HorizontalContentAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendOptionScrollBoxViewModel.VerticalContentAlignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendValueSelectionViewModel.Values">
+            <inheritdoc />
+        </member>
+        <member name="P:Ansys.Disco.CoreUI.ViewModels.Legend.LegendValueSelectionViewModel.SelectedValueIndex">
+            <inheritdoc />
+        </member>
+        <member name="M:Ansys.Disco.CoreUI.ViewModels.Materials.IMaterialOptionsViewModelFactory.Create(Ansys.Disco.CoreUI.ViewModels.Materials.MaterialAssignmentType,System.Boolean)">
+            <summary>
+            Creates the condition options
+            </summary>
+            <param name="materialAssignmentType">The type of material assignment the that material option will associate with</param>
+            <param name="showExtendedOptions">Whether the tool options should be expanded or not</param>
+            <returns>The viewmodel with condition options</returns>
+        </member>
+    </members>
+</doc>
